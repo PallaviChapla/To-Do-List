@@ -1,11 +1,47 @@
 {
-  "posts": [
-    { "id": "1", "title": "a title", "views": 100 },
-    { "id": "2", "title": "another title", "views": 200 }
+  "users": [
+    {
+      "id": "1",
+      "fullName": "Pallavi Chapla",
+      "email": "pallavi.chapla@gmail.com",
+      "password": "Pallavi@2025"
+    },
+    {
+      "id": "897f",
+      "fullName": "Sam",
+      "email": "sam@test.com",
+      "password": "Sam@2025"
+    },
+    {
+      "id": "a2ef",
+      "fullName": "dummyuser",
+      "email": "dummy@test.com",
+      "password": "Sam@2025"
+    },
+    {
+      "id": "0cf9",
+      "fullName": "dipesh",
+      "email": "dip@test.com",
+      "password": "A@s11111"
+    },
+    {
+      "id": "6e9f",
+      "fullName": "wee",
+      "email": "wewe@test.com",
+      "password": "Sam@2025"
+    }
   ],
   "comments": [
-    { "id": "1", "text": "a comment about post 1", "postId": "1" },
-    { "id": "2", "text": "another comment about post 1", "postId": "1" }
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
   ],
   "profile": {
     "name": "typicode"
