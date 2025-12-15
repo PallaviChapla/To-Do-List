@@ -1,24 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UsersService } from '../services/users.service';
+import { Router, RouterLink } from "@angular/router";
 
 @Component({
 	selector: 'app-registration',
 	standalone: true,
-	imports: [ReactiveFormsModule],
+	imports: [ReactiveFormsModule, RouterLink],
 	templateUrl: './registration.component.html',
 	styleUrl: './registration.component.scss'
 })
 export class RegistrationComponent {
 
-	constructor(private UsersService: UsersService){}
+	// constructor(private UsersService: UsersService){}
+    UsersService = inject(UsersService)
+    router = inject(Router);
 
 	// registration form submit data
 	registrationForm = new FormGroup({
-		fullName: new FormControl('Sam', { validators: [Validators.required] }),
-		email: new FormControl('sam@test.com', { validators: [Validators.required, Validators.email] }),
-		password: new FormControl('Sam@2025', { validators: [Validators.required, Validators.pattern('^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$')] }),
-		userConfirmPwd: new FormControl('Sam@2025', { validators: [Validators.required, Validators.pattern('^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$')] }),
+		fullName: new FormControl('', { validators: [Validators.required] }),
+		email: new FormControl('', { validators: [Validators.required, Validators.email] }),
+		password: new FormControl('', { validators: [Validators.required, Validators.pattern('^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$')] }),
+		userConfirmPwd: new FormControl('', { validators: [Validators.required, Validators.pattern('^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$')] }),
 	})
 
 	// registration form fields value get
@@ -63,4 +66,7 @@ export class RegistrationComponent {
 		formName.reset();
 	}
 
+    goToLogin(){
+        this.router.navigate(['./login'])
+    }
 }
